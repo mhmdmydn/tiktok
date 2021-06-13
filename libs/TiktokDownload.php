@@ -1,9 +1,10 @@
 <?php
 
+
 class TiktokDownload
 {
     public $url;
-    private $FORCE_DOWNLOAD_FILE = 'getFile.php';
+    private $FORCE_DOWNLOAD_FILE = '../libs/getFile.php';
     private $userAgent = 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Mobile Safari/537.36';
     private $patterns = ['<link data-react-helmet="true" rel="canonical" href="', '"/>', '>', '</', 'id="__NEXT_DATA__"'];
 
@@ -81,7 +82,7 @@ class TiktokDownload
         $video->description = $json->props->pageProps->seoProps->metaParams->description;
         $video->original_url = $json->props->pageProps->seoProps->metaParams->canonicalHref;
         $video->download_url = $protocole . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF'])
-            . '/' . $this->FORCE_DOWNLOAD_FILE
+            . $this->FORCE_DOWNLOAD_FILE
             . '?u=' . urlencode($json->props->pageProps->itemInfo->itemStruct->video->downloadAddr)
             . '&t=' . $video->id . '&f=v';
 
@@ -96,7 +97,7 @@ class TiktokDownload
         $music->duration = $json->props->pageProps->itemInfo->itemStruct->music->duration;
         $music->url = $json->props->pageProps->itemInfo->itemStruct->music->playUrl;
         $music->download_url = $protocole . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF'])
-            . '/' . $this->FORCE_DOWNLOAD_FILE
+            . $this->FORCE_DOWNLOAD_FILE
             . '?u=' . urlencode($music->url)
             . '&t=' . $music->id . '&f=a';
 
