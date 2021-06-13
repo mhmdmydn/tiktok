@@ -19,8 +19,8 @@ $video = "";
 $music = "";
 $author = "";
 
-$noProfile = "https://lh3.googleusercontent.com/proxy/Z3_2PfXKH2vQNO_OcZamUvj9fxlGASjmxJXe-sGHzx_N6nCkUiDqdTpXAFZKEw6RDC46EQTAB5CEuO3g3KdDgDgE3sBYHN_rwiN4kHr7MSY3iCqSiHIGcpAl9dW_hDMZVUqXoudX_A";
-$noTumbnail = "https://static.republika.co.id/uploads/images/inpicture_slide/aplikasi-media-sosial-asal-china-tiktok_200514193608-520.png";
+$noProfile = "./assets/img/profile.png";
+$noTumbnail = "./assets/img/tiktok.png";
 
 if (isset($_POST['btnProses'])) {
     $url = $_POST['url'];
