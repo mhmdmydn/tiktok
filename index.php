@@ -33,7 +33,7 @@ if (isset($_POST['btnProses'])) {
         $author = $result["author"];
     } else {
         echo "<script type='text/javascript'>" .
-            "alert('Url Invalid')" .
+            "alert('Invalid url')" .
             "</script>";
     }
 }
