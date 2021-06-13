@@ -166,8 +166,10 @@ class TiktokDownload
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
         header('Cache-Control: private', false);
         header('Content-Type: application/force-download');
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
+        header('Content-Type: application/octet-stream');
+        header('Content-Type: application/download');
+        header('Content-type: video/mp4');
+        header('Content-type: audio/mpeg');
         header('Content-Disposition: attachment; filename="' . basename($title) . $format);
         header('Content-Transfer-Encoding: binary');
         header('Pragma: public');
@@ -179,7 +181,6 @@ class TiktokDownload
             echo $error_msg;
         } else {
             curl_close($ch);
-
             echo $video;
         }
     }
