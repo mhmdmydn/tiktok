@@ -174,8 +174,13 @@ class TiktokDownload
         header('Connection: Keep-Alive');
 
         $video = curl_exec($ch);
-        curl_close($ch);
+        if (curl_errno($ch)) {
+            $error_msg = curl_error($ch);
+            echo $error_msg;
+        } else {
+            curl_close($ch);
 
-        echo $video;
+            echo $video;
+        }
     }
 }

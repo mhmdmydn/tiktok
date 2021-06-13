@@ -26,12 +26,12 @@ if (isset($_POST['btnProses'])) {
     $url = $_POST['url'];
 
     if (strpos($url, "tiktok" ? "tiktok" : "vm") !== false) {
-        $results = new TiktokDownload($url);
-        $datas = json_decode(json_encode($results->get()), true);
+        $tikdown = new TiktokDownload($url);
+        $result = json_decode(json_encode($tikdown->get()), true);
 
-        $video = $datas["video"];
-        $music = $datas["music"];
-        $author = $datas["author"];
+        $video = $result["video"];
+        $music = $result["music"];
+        $author = $result["author"];
     } else {
         echo "<script type='text/javascript'>" .
             "alert('Url Invalid')" .
