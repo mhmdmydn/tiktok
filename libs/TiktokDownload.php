@@ -82,7 +82,7 @@ class TiktokDownload
         $video->description = $json->props->pageProps->seoProps->metaParams->description;
         $video->original_url = $json->props->pageProps->seoProps->metaParams->canonicalHref;
         $video->download_url = $protocole . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF'])
-            . '/' . $this->FORCE_DOWNLOAD_FILE
+            . $this->FORCE_DOWNLOAD_FILE
             . '?u=' . urlencode($json->props->pageProps->itemInfo->itemStruct->video->downloadAddr)
             . '&t=' . $video->id . '&f=v';
 
@@ -97,7 +97,7 @@ class TiktokDownload
         $music->duration = $json->props->pageProps->itemInfo->itemStruct->music->duration;
         $music->url = $json->props->pageProps->itemInfo->itemStruct->music->playUrl;
         $music->download_url = $protocole . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF'])
-            . '/' . $this->FORCE_DOWNLOAD_FILE
+            . $this->FORCE_DOWNLOAD_FILE
             . '?u=' . urlencode($music->url)
             . '&t=' . $music->id . '&f=a';
 
