@@ -181,7 +181,8 @@ class TiktokDownload
             echo $error_msg;
         } else {
             curl_close($ch);
-            echo $video;
+            readfile($video);
+            // echo $video;
         }
     }
 }
