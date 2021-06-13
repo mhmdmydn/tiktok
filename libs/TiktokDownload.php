@@ -173,7 +173,9 @@ class TiktokDownload
         header('Content-Disposition: attachment; filename="' . basename($title) . $format);
         header('Content-Transfer-Encoding: binary');
         header('Pragma: public');
-        header('Connection: Keep-Alive');
+        header('Content-Length : ' . filesize($directUrl));
+        ob_clean();
+        flush();
 
         $video = curl_exec($ch);
         if (curl_errno($ch)) {
@@ -181,8 +183,7 @@ class TiktokDownload
             echo $error_msg;
         } else {
             curl_close($ch);
-            readfile($video);
-            // echo $video;
+            echo $video;
         }
     }
 }
