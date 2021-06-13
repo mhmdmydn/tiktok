@@ -174,8 +174,6 @@ class TiktokDownload
         header('Content-Transfer-Encoding: binary');
         header('Pragma: public');
         header('Content-Length : ' . filesize($directUrl));
-        ob_clean();
-        flush();
 
         $video = curl_exec($ch);
         if (curl_errno($ch)) {

@@ -4,11 +4,6 @@ require './libs/TiktokDownload.php';
 // header('Content-Type: application/json');
 // $video = new TiktokDownload('https://www.tiktok.com/@the_object/video/6971368116584533250');
 // echo (json_encode($results->get()));
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
-
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
 
 function format_number($number)
 {
